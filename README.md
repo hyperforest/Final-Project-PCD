@@ -3,7 +3,7 @@
 A simple detector to predict letters from sign language using webcam.
 
 ## Pre-words
-This project is done in accomplishment of final project of PCD lecture in Universitas Gadjah Mada. PCD stands for Pengolahan Citra Digital in Bahasa Indonesia, which translated to Digital Image Processing (DIP) in English. This project use Convolutional Neural Network as a prediction model used to predict what letter is the input image belong, and use OpenCV library to open webcam and handle digital image processing techniques.
+This project is done in accomplishment of final project of PCD lecture in Universitas Gadjah Mada. PCD stands for Pengolahan Citra Digital in Bahasa Indonesia, which translated to Digital Image Processing (DIP) in English. This project use Convolutional Neural Network as a prediction model used to predict what letter the input image is, and use OpenCV library to open webcam and handle digital image processing techniques.
 
 ## 1. How to use
 This project use command-line to run. All you need just webcam, Python 3, and some of libraries installed. Download this repo first.
@@ -37,9 +37,13 @@ The program works as follows:
 4.  The prediction model will predict what letter is the input image.
 5.  Else, if `z` is pressed, the program will closing webcam window and exit.
 
-## 4. Weaknesses
-This project still have some sort of weaknesses and can be repaired soon:
-1. Bad prediction performance if the background behind the hand is not bright/white. This is the biggest weakness in this project I think. The solution to handle this weakness is maybe do some background substracting technique.
-2. Only good at predicting some letters even though if the background is bright. This project mostly successful in predicting C, F, L, O, V, W, and X. The letters A, B, E, I, K, M, N, P, Q, S, or U are so rarely predicted as correct. Letter J and Z can not be predicted since a person have to make a motion with their hand to sign it. The remaining letters have average correct prediction but not as good as the first seven letters. This weakness can be repaired by using different model.
-3. DIP techniques used are just too few, and the ConvNet model is too vanilla. I use the kernel <a href="https://www.kaggle.com/ranjeetjain3/deep-learning-using-sign-langugage">here</a> to create the model. Supposed to use more advanced DIP techniques and neural network configurations.
-4. Only predict when triggered by `q` button. It could predict in stream using sliding window technique only if the prediction model is good enough.
+## 4. Features
+Some of additional feature in this project beside predicting letters:
+1.  If you type `py main.py mine` in command line instead of only `py main.py`, every number of trials which multiple of 5, the webcam will capture the original image and save it to folder `mined\big`. It always save the downsampled input image (the 28x28 px grayscale image) in `mined\small` even if the command used is only `py main.py`. This mined image can be used for some purpose such as generate data training and test the model on big image containing some hands. Saved image has name format of `DD-MM-YY HH-MM-SS.JPG`.
+
+## 5. Weaknesses
+This project still have some sort of weaknesses that can be repaired soon:
+1.  Bad prediction performance if the background behind the hand is not bright/white. This is the biggest weakness in this project I think. The solution to handle this weakness is maybe do some background substracting technique.
+2.  Only good at predicting some letters even though if the background is bright. This project mostly successful in predicting C, F, L, O, V, W, and X. The letters A, B, E, I, K, M, N, P, Q, S, or U are so rarely predicted as correct. Letter J and Z can not be predicted since a person have to make a motion with their hand to sign it. The remaining letters have average correct prediction but not as good as the first seven letters. This weakness can be repaired by using different model.
+3.  DIP techniques used are just too few, and the ConvNet model is too vanilla. I use the kernel <a href="https://www.kaggle.com/ranjeetjain3/deep-learning-using-sign-langugage">here</a> to create the model. Supposed to use more advanced DIP techniques and neural network configurations.
+4.  Only predict when triggered by `q` button. It could predict in stream using sliding window technique only if the prediction model is good enough.
