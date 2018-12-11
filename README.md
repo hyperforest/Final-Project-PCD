@@ -2,6 +2,8 @@
 
 A simple detector to predict letters from sign language using webcam.
 
+<img src="screenshot.png" align="center" alt="screenshot">
+
 ## Pre-words
 This project is done in accomplishment of final project of PCD lecture in Universitas Gadjah Mada. PCD stands for Pengolahan Citra Digital in Bahasa Indonesia, which translated to Digital Image Processing (DIP) in English. This project use Convolutional Neural Network as a prediction model used to predict what letter the input image is, and use OpenCV library to open webcam and handle digital image processing techniques.
 
