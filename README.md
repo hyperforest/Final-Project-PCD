@@ -5,18 +5,18 @@ A simple detector to predict letters from sign language using webcam.
 <img src="screenshot.png" align="center" alt="screenshot">
 
 ## Pre-words
-This project is done in accomplishment of final project of PCD lecture in Universitas Gadjah Mada. PCD stands for Pengolahan Citra Digital in Bahasa Indonesia, which translated to Digital Image Processing (DIP) in English. This project use Convolutional Neural Network as a prediction model used to predict what letter the input image is, and use OpenCV library to open webcam and handle digital image processing techniques.
+This project is done in accomplishment of final project of PCD lecture in undergraduate programme in Computer Science of Universitas Gadjah Mada. PCD stands for Pengolahan Citra Digital in Bahasa Indonesia, which translated to Digital Image Processing (DIP) in English. This project use Convolutional Neural Network as a prediction model used to predict what letter the input image is, and use OpenCV library to open webcam and handle digital image processing techniques. The sign language used here is American Sign Language.
 
 ## 1. How to use
 This project use command-line to run. All you need just webcam, Python 3, and some of libraries installed. Download this repo first.
 1.  Open command line
 2.  In the command line, change directory to where this repo is in.<br>If this repo is in **C:\Users\Rimba\Downloads**, to change the directory you can type `cd C:\Users\Rimba\Downloads\Final-Project-PCD` in command line.
 3.  Run `main.py` using Python command. You can type `py main.py` or `python3 main.py` in command line to run.
-4.  Wait the program until it finished importing library and loading model. Webcam window will appear after it finished.
+4.  Wait the program until it finished importing library and loading model. Webcam window should appear after it finished.
 5.  Try one of sign language letter in `amer_sign2.png` file. Use your right hand, and place it in green box on the webcam window.
 6.  Press `q` button to capture. Predicted image and its result will appear in command line. Hold `z` button to exit. Make sure the webcam window is your active window while pressing these buttons.
 
-## 2. Libraries installed
+## 2. Libraries required
 1.  <a href="http://www.numpy.org/">NumPy</a>. Image will be treated as 2D matrix with 3 layers (red, green, and blue). Numpy is most used library to handle this.
 2.  <a href="https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_tutorials.html">OpenCV</a> for Python 3. Used for showing webcam and do some digital image processing (DIP) techniques.
 3.  <a href="https://keras.io/">Keras</a>. Used to load prediciton model and predict letter from image given.
@@ -33,7 +33,7 @@ The program works as follows:
 1.  Importing library, loading model, and open the webcam with green box on the bottom left
 2.  Crop 224x224 pixel image in the box and use it as input image
 3.  If `q` is pressed, input image will go through these techniques consecutively:
-- Contrast stretching. This will stretch pixel intensity of the image to a range of [a, b]
+- Contrast stretching. This will stretch pixel intensity of the image to a range of [a, b]. By default, the value of a is 0 and b is 255 in this project.
 - Grayscaling. For each pixel of the image, its intensity replaced with mean of its R, G, and B intensity value.
 - Downsampling. The prediction model only accept 28x28 pixel of input image, then the input image should be resized (downsampled) using certain interpolation method. Default method used is linear interpolation.
 4.  The prediction model will predict what letter is the input image.
